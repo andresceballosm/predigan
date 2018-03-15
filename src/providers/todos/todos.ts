@@ -108,6 +108,16 @@ export class Todos {
       console.log(err);
     });
   }
+
+  getAnimal(_id){
+
+    return this.data.filter(function(e,i){return e._id==_id});
+     }
+ 
+ 
+   createTodo(item){
+     this.db.post(item);
+   }
  
 }
  

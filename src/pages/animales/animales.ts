@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 import { Todos } from '../../providers/todos/todos';
 import { IonicPage, NavController, NavParams, AlertController,MenuController } from 'ionic-angular';
-
-import { AnimalPage } from '../pages/animal/animal';
+import { AddanimalPage} from '../addanimal/addanimal'
+//import { AnimalPage } from '../pages/animal/animal';
  
 @Component({
   selector: 'page-animales',
   templateUrl: 'animales.html'
 })
 export class AnimalesPage {
- 
+
   items: any;
+  _id: null;
+  raza:null;
 
   constructor(public nav: NavController, 
    public todoService: Todos,
@@ -19,14 +21,14 @@ export class AnimalesPage {
     
      menu.enable(true);
   }
-
+  
   openMenu() {
      
          this.menu.enable(true, 'menu');
          this.menu.toggle();
   }
 
-   ionViewDidLoad(){
+  ionViewDidLoad(){
  
     this.items = [];
  
@@ -35,16 +37,20 @@ export class AnimalesPage {
       });
  
   }
+  addAnimal(){
+    this.nav.push(AddanimalPage);
+  }
 
- 
+ /*
   logout(){
     this.todoService.logout();
     this.items = null;
     this.nav.setRoot(LoginPage);
   }
- 
-  createTodo(){
- 
+ */
+
+
+ /*
     let prompt = this.alertCtrl.create({
       title: 'Add',
       message: 'What do you need to do?',
@@ -67,9 +73,9 @@ export class AnimalesPage {
     });
  
     prompt.present();
- 
-  }
- 
+ */
+  
+ /*
   updateTodo(todo){
  
     let prompt = this.alertCtrl.create({
@@ -99,7 +105,7 @@ export class AnimalesPage {
  
     prompt.present();
   }
- 
+ */
   deleteTodo(items){
     this.todoService.deleteItems(items);
   }

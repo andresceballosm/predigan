@@ -3,6 +3,7 @@ import { Http, Headers } from '@angular/http';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { HomePage } from '../home/home';
+import {AnimalesPage} from '../animales/animales'
 import { Todos } from '../../providers/todos/todos';
 
 
@@ -25,6 +26,7 @@ export class AddanimalPage {
   }
 
   registeranimal(){
+    console.log("entro a registro");
   this.todoService.createTodo({
         nombre: this.nombre,
         cod: this.cod,
@@ -34,12 +36,10 @@ export class AddanimalPage {
         fecha: this.fecha,
 
      })
-       }
-  
-
-    
-  
+     this.nav.push(AnimalesPage);
   }
+  
+}
 
 
   

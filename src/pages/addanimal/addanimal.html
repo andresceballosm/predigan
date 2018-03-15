@@ -8,25 +8,25 @@
  
  
 <ion-content padding>
- 
-  <form class="account-form" ng-submit="registeranimal()"  onsubmit="this.reset()" method="post" class="list">
+   
+  <form class="account-form" method="post" class="list">
     <ion-col>
       <ion-list inset>
  
         <ion-item>
           <ion-label><ion-icon name="bookmark"></ion-icon></ion-label>
-          <ion-input [(ngModel)]="nombre" placeholder="Nombre Animal" type="text" required></ion-input>
+          <ion-input [(ngModel)]="nombre" name="nombre" placeholder="Nombre Animal" type="text" required></ion-input>
         </ion-item>
  
         <ion-item>
           <ion-label><ion-icon name="pricetag"></ion-icon></ion-label>
-          <ion-input [(ngModel)]="cod" placeholder="Codigo del animal" type="text" required></ion-input>
+          <ion-input [(ngModel)]="cod" name="cod" placeholder="Codigo del animal" type="text" required></ion-input>
         </ion-item>
  
-        
+  
         <ion-item>
        <ion-label><ion-icon name="code-working"></ion-icon> Raza</ion-label>
-       <ion-select [(ngModel)]="raza">
+       <ion-select [(ngModel)]="raza" name="raza">
        <ion-option value="Angus">Angus</ion-option>
        <ion-option value="Aryshire">Aryshire</ion-option>
        <ion-option value="Bon">Bon</ion-option>
@@ -51,7 +51,7 @@
 
         <ion-item>
        <ion-label><ion-icon name="male"></ion-icon> Sexo</ion-label>
-       <ion-select [(ngModel)]="sexo">
+       <ion-select [(ngModel)]="sexo" name="sexo">
        <ion-option value="Hembra">Hembra</ion-option>
        <ion-option value="Macho">Macho</ion-option>
        </ion-select> 
@@ -59,19 +59,19 @@
 
         <ion-item>
           <ion-label><ion-icon name="folder"></ion-icon></ion-label>
-          <ion-input [(ngModel)]="lote" placeholder="Lote al que pertenece" type="text"></ion-input>
+          <ion-input [(ngModel)]="lote" name="lote" placeholder="Lote al que pertenece" type="text"></ion-input>
         </ion-item>
  
        <ion-item>
           <ion-label><ion-icon name="calendar"></ion-icon>Fecha de nacimiento</ion-label>
-          <ion-input [(ngModel)]="fecha" type="date"></ion-input>
+          <ion-input [(ngModel)]="fecha" name="fecha" type="date"></ion-input>
         </ion-item>
  
       </ion-list>
  
-      <button ion-button type="submit" value="submit"  ng-click="registeranimal()" class="continue-button">Registrar animal</button>
+      <button ion-button type="submit" value="submit" (click)="registeranimal()" class="continue-button">Registrar animal</button>
  
     </ion-col>
     </form>
- 
+    
 </ion-content>

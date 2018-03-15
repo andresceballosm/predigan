@@ -6,12 +6,12 @@
       PrediGan
     </ion-title>
 
-    <ion-buttons start>
-      
-   <button ion-button icon-only (click)="logout()"><ion-icon name="power"></ion-icon></button>
+    <ion-buttons start>   
+    <button ion-button icon-only (click)="logout()"><ion-icon name="power"></ion-icon></button>
     </ion-buttons>
+    
     <ion-buttons end>
-      <button ion-button icon-only (click)="createTodo()"><ion-icon name="cloud-upload"></ion-icon></button>
+      <button ion-button icon-only (click)="addAnimal()"><ion-icon name="add"></ion-icon></button>
     </ion-buttons>
     
 
@@ -22,7 +22,7 @@
  
   <ion-list no-lines>
  
-    <ion-item-sliding *ngFor="let item of items">
+    <ion-item-sliding *ngFor="let item of items" (click)="openPage(_id,raza)">
  
 
     <ion-item>
