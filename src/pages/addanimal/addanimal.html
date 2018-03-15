@@ -1,0 +1,77 @@
+<ion-header>
+ 
+  <ion-navbar color="secondary">
+    <ion-title>Registrar animal</ion-title>
+  </ion-navbar>
+ 
+</ion-header>
+ 
+ 
+<ion-content padding>
+ 
+  <form class="account-form" ng-submit="registeranimal()"  onsubmit="this.reset()" method="post" class="list">
+    <ion-col>
+      <ion-list inset>
+ 
+        <ion-item>
+          <ion-label><ion-icon name="bookmark"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="nombre" placeholder="Nombre Animal" type="text" required></ion-input>
+        </ion-item>
+ 
+        <ion-item>
+          <ion-label><ion-icon name="pricetag"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="cod" placeholder="Codigo del animal" type="text" required></ion-input>
+        </ion-item>
+ 
+        
+        <ion-item>
+       <ion-label><ion-icon name="code-working"></ion-icon> Raza</ion-label>
+       <ion-select [(ngModel)]="raza">
+       <ion-option value="Angus">Angus</ion-option>
+       <ion-option value="Aryshire">Aryshire</ion-option>
+       <ion-option value="Bon">Bon</ion-option>
+       <ion-option value="Brahman">Brahman</ion-option>
+       <ion-option value="Brangus">Brangus</ion-option>
+       <ion-option value="Girolando">Girolando</ion-option>
+       <ion-option value="Gyr">Gyr</ion-option>
+       <ion-option value="Holstein">Holstein</ion-option>
+       <ion-option value="Indobrasil">Indobrasil</ion-option>
+       <ion-option value="Jersey">Jersey</ion-option>
+        <ion-option value="Limousin">Limousin</ion-option>
+       <ion-option value="Nelore">Nelore</ion-option>
+       <ion-option value="Normando">Normando</ion-option>
+       <ion-option value="Simbrah">Simbrah</ion-option>
+       <ion-option value="Simental">Simental</ion-option>
+        <ion-option value="Pardo suizo">Pardo suizo</ion-option>
+        <ion-option value="Otros carne">Otros carne</ion-option>
+       <ion-option value="Otros doble proposito">Otros doble proposito</ion-option>
+       <ion-option value="Otros leche">Otros leche</ion-option>
+       </ion-select> 
+      </ion-item>
+
+        <ion-item>
+       <ion-label><ion-icon name="male"></ion-icon> Sexo</ion-label>
+       <ion-select [(ngModel)]="sexo">
+       <ion-option value="Hembra">Hembra</ion-option>
+       <ion-option value="Macho">Macho</ion-option>
+       </ion-select> 
+      </ion-item>
+
+        <ion-item>
+          <ion-label><ion-icon name="folder"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="lote" placeholder="Lote al que pertenece" type="text"></ion-input>
+        </ion-item>
+ 
+       <ion-item>
+          <ion-label><ion-icon name="calendar"></ion-icon>Fecha de nacimiento</ion-label>
+          <ion-input [(ngModel)]="fecha" type="date"></ion-input>
+        </ion-item>
+ 
+      </ion-list>
+ 
+      <button ion-button type="submit" value="submit"  ng-click="registeranimal()" class="continue-button">Registrar animal</button>
+ 
+    </ion-col>
+    </form>
+ 
+</ion-content>

@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Animal</ion-title>
+     <ion-buttons end>
+      <button ion-button icon-only (click)="addData()"><ion-icon name="add"></ion-icon></button> 
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content>
+ <!-- <ion-list>
+    <ion-item *ngFor="let item of items">
+      {{item.message}}
+    </ion-item>
+  </ion-list>-->
+
+  <ion-list> 
+ 
+    <ion-item-sliding *ngFor="let item of items">    
+      <ion-item>
+        <ion-thumbnail item-start>
+     <img src="../../img/etiqueta.jpg" style="width:150px !important; height:200px; margin:auto; display:block" />
+     <div>{{item.cod}}</div>
+        </ion-thumbnail>
+   
+      <h2>Nombre: {{item.nombre}}</h2>
+      <p>Raza: {{item.raza}}</p>
+      <p>Lote: {{item.lote}}</p>
+      <p>Sexo: {{item.sexo}}</p>
+      <p>Fecha de nacimiento: {{item.fecha}}</p>
+     
+    </ion-item>
+      <ion-item-options>
+        <button ion-button icon-only color="light" (click)="updateTodo(todo)">
+          <ion-icon name="create"></ion-icon>
+        </button>
+        <button ion-button icon-only color="primary" (click)="deleteTodo(todo)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+<ion-item-group>
+    <ion-item-divider color="light" font-size="50px" align="center">CALCULAR PESO</ion-item-divider>
+
+
+
+<ion-row class="calculadora-form">
+    <ion-col>
+      <ion-list inset>     
+
+  <ion-item>
+   <ion-label><ion-icon name="calendar"></ion-icon></ion-label>
+   <ion-input [(ngModel)]="fechapesaje" placeholder="Fecha" type="date"></ion-input>
+   </ion-item>
+
+
+
+    <ion-item>
+    <ion-label><ion-icon name="mail"></ion-icon></ion-label>
+    <ion-input  [(ngModel)]="diametro" placeholder="Diametro toraxico cm" type="number"></ion-input>
+    </ion-item>
+
+     <ion-item>
+    <ion-label><ion-icon name="calculator"></ion-icon></ion-label>
+    <ion-input [(ngModel)]="peso" placeholder="" type="number" ng-value="this.peso"></ion-input>
+    </ion-item>
+
+</ion-list>
+
+
+ <button ion-button (click)="calcular(raza)" class="continue-button">Calcular Peso</button>
+
+ <button ion-button (click)="guardarpeso()" class="continue-button">Guardar</button>
+
+         
+     </ion-col>
+  </ion-row>
+
+      
+<button ion-button icon-only (click)="verregistros()"><ion-icon name="eye"></ion-icon></button>
+
+  </ion-item-group>
+
+   <ion-item-group>
+    <ion-item-divider color="secondary" align="center">HISTORIAL</ion-item-divider>
+
+  <ion-item>
+    <ion-label>Diametro toraxico</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+
+  </ion-item-group>
+ 
+</ion-content>

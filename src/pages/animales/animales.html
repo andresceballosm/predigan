@@ -1,0 +1,54 @@
+<ion-header no-border>
+  <ion-navbar color="secondary">
+    <button ion-button icon-only menuToggle> <ion-icon name="menu"></ion-icon></button>
+
+    <ion-title>
+      PrediGan
+    </ion-title>
+
+    <ion-buttons start>
+      
+   <button ion-button icon-only (click)="logout()"><ion-icon name="power"></ion-icon></button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="createTodo()"><ion-icon name="cloud-upload"></ion-icon></button>
+    </ion-buttons>
+    
+
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content>
+ 
+  <ion-list no-lines>
+ 
+    <ion-item-sliding *ngFor="let item of items">
+ 
+
+    <ion-item>
+        <ion-avatar item-start>
+          <img src="../../img/etiqueta.jpg">
+        </ion-avatar>
+        <h2>{{item.cod}}</h2>
+        <h3>{{item.nombre}}</h3>
+        <p>{{item.raza}}</p>
+      </ion-item>
+     
+      <ion-item-options>
+        <button ion-button icon-only color="light" (click)="updateTodo(items)">
+          <ion-icon name="create"></ion-icon>
+        </button>
+
+       <button ion-button icon-only color="light" (click)="updateTodo(items)">
+          <ion-icon name="create"></ion-icon>
+        </button>
+
+        <button ion-button icon-only color="primary" (click)="deleteTodo(items)">
+          <ion-icon name="checkmark"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+ 
+  </ion-list>
+ 
+</ion-content>

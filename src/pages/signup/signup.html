@@ -1,0 +1,74 @@
+<ion-header>
+ 
+  <ion-navbar color="secondary">
+    <ion-title>Crear cuenta</ion-title>
+  </ion-navbar>
+ 
+</ion-header>
+ 
+ 
+<ion-content padding>
+ 
+  <ion-row class="account-form">
+    <ion-col>
+      <ion-list inset>
+ 
+        <ion-item>
+          <ion-label><ion-icon name="person"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="name" placeholder="Nombre" type="text"></ion-input>
+        </ion-item>
+ 
+        <ion-item>
+          <ion-label><ion-icon name="person"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="username" placeholder="Usuario" type="text"></ion-input>
+        </ion-item>
+
+         <ion-item>
+          <ion-label><ion-icon name="person"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="finca" placeholder="Finca" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Pais</ion-label>
+          <ion-select [(ngModel)]="pais" multiple="false">
+            <ion-option>Argentina</ion-option>
+            <ion-option>Bolivia</ion-option>
+            <ion-option>Brasil</ion-option>
+            <ion-option>Chile</ion-option>
+            <ion-option>Colombia</ion-option>
+            <ion-option>Costa Rica</ion-option>
+            <ion-option>Ecuador</ion-option>
+            <ion-option>El Salvador</ion-option>
+            <ion-option>Guatemala</ion-option>
+            <ion-option>Honduras</ion-option>
+            <ion-option>Mexico</ion-option>
+            <ion-option>Nicaragua</ion-option>
+            <ion-option>Panama</ion-option>
+            <ion-option>Paraguay</ion-option>
+            <ion-option>Perú</ion-option>
+            <ion-option>Uruguay</ion-option>
+            <ion-option>Venezuela</ion-option>
+          </ion-select>
+        </ion-item>
+         
+        <ion-item>
+          <ion-label><ion-icon name="mail"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="email" placeholder="Email" type="email"></ion-input>
+        </ion-item>
+ 
+        <ion-item>
+          <ion-label><ion-icon name="lock"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="password" placeholder="Contraseña" type="password"></ion-input>
+        </ion-item>
+ 
+        <ion-item>
+          <ion-label><ion-icon name="lock"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="confirmPassword" placeholder="Confirmar contraseña" type="password"></ion-input>
+        </ion-item>
+ 
+      </ion-list>
+ 
+      <button ion-button (click)="register()" class="continue-button">Registrar</button>
+ 
+    </ion-col>
+  </ion-row>
