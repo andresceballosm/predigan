@@ -9,26 +9,53 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 export class AnimalPage {
  
   items: any;
-  _id: null;
-  raza:null;
- 
+  _id: string;
+  animal : Todos;
+  nombre : string;
+  raza:string;
+  cod:string;
+  lote:string;
+  sexo:string;
+  fecha:string;
+  
   constructor( public navCtrl: NavController,public todoService: Todos, public navParams: NavParams,public alertCtrl: AlertController ) {
    
-   this._id=navParams.get('_id');
-   this.raza=navParams.get('raza');
+   //let item = this.navParams.get('_id')
+   let item = this.navParams.get('animal')
 
-   this.items =todoService.getAnimal(this._id);
+   this.nombre=item.nombre;
+   this.raza=item.raza;
+   this.cod=item.cod;
+   this.sexo=item.sexo;
+   this.lote=item.lote;
+   this.fecha=item.fecha
+ 
+
+   //this.cargarAnimal(this._id);
+
+  // this.items =todoService.getAnimal(item);
+  // console.log(this.items);
   
+}
+
+cargarAnimal(_id){
+  this.todoService.getAnimal(_id)
+  .subscribe(
+    rs => this.animal = rs[0],
+    er => console.log(er),
+    () => console.log('ok')
+
+  ) 
 }
  
   ionViewDidLoad(){
  
-      this.items = [];
+   /* this.items = [];
  
       this.todoService.getDocuments().then((result) => {
         this.items = result;
-      });
- 
+    });
+*/ 
   }
 
   createTodo(){

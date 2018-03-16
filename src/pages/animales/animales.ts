@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Todos } from '../../providers/todos/todos';
 import { IonicPage, NavController, NavParams, AlertController,MenuController } from 'ionic-angular';
 import { AddanimalPage} from '../addanimal/addanimal'
-//import { AnimalPage } from '../pages/animal/animal';
+import { AnimalPage } from '../animal/animal';
  
 @Component({
   selector: 'page-animales',
@@ -13,6 +13,7 @@ export class AnimalesPage {
   items: any;
   _id: null;
   raza:null;
+  cod:null;
 
   constructor(public nav: NavController, 
    public todoService: Todos,
@@ -39,6 +40,12 @@ export class AnimalesPage {
   }
   addAnimal(){
     this.nav.push(AddanimalPage);
+  }
+  openPage(item){
+    this.nav.push(AnimalPage,{
+      //id:item._id
+      animal:item
+    });
   }
 
  /*
@@ -106,7 +113,7 @@ export class AnimalesPage {
     prompt.present();
   }
  */
-  deleteTodo(items){
+  deleteTodo(item){
     this.todoService.deleteItems(items);
   }
  

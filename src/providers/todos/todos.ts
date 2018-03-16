@@ -109,10 +109,11 @@ export class Todos {
     });
   }
 
-  getAnimal(_id){
-
-    return this.data.filter(function(e,i){return e._id==_id});
-     }
+  getAnimal(item){
+console.log(item)
+    return this.data.filter(function(e,i){return e._id==item});
+    
+  }
  
  
    createTodo(item){
