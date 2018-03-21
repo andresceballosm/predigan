@@ -8,29 +8,44 @@
  
  
 <ion-content padding>
- 
+  <ion-slides #signupSlider pager>
+  <ion-slide>
+      <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+  <form [formGroup]="registerValidate">
   <ion-row class="account-form">
     <ion-col>
       <ion-list inset>
  
         <ion-item>
           <ion-label><ion-icon name="person"></ion-icon></ion-label>
-          <ion-input [(ngModel)]="name" placeholder="Nombre" type="text"></ion-input>
+          <ion-input [(ngModel)]="name"  name="name" formControlName="name" [class.invalid]="!registerValidate.controls.name.valid && (registerValidate.controls.name.dirty || submitAttempt)" placeholder="Nombre" type="text" required></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="!registerValidate.controls.name.valid  && (registerValidate.controls.name.dirty || submitAttempt)">
+            <p>Please enter a valid name.</p>
         </ion-item>
  
         <ion-item>
           <ion-label><ion-icon name="person"></ion-icon></ion-label>
-          <ion-input [(ngModel)]="username" placeholder="Usuario" type="text"></ion-input>
+          <ion-input [(ngModel)]="username"  name="username" formControlName="username" [class.invalid]="!registerValidate.controls.username.valid && (registerValidate.controls.username.dirty || submitAttempt)" placeholder="Usuario" type="text"required></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="!registerValidate.controls.username.valid  && (registerValidate.controls.username.dirty || submitAttempt)">
+            <p>Please enter a valid username.</p>
         </ion-item>
 
          <ion-item>
           <ion-label><ion-icon name="person"></ion-icon></ion-label>
-          <ion-input [(ngModel)]="finca" placeholder="Finca" type="text"></ion-input>
+          <ion-input [(ngModel)]="finca" name="finca" formControlName="finca" [class.invalid]="!registerValidate.controls.finca.valid && (registerValidate.controls.finca.dirty || submitAttempt)" placeholder="Finca" type="text" required></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="!registerValidate.controls.finca.valid  && (registerValidate.controls.finca.dirty || submitAttempt)">
+            <p>Please ingrese el nombre de la Finca.</p>
         </ion-item>
 
         <ion-item>
           <ion-label>Pais</ion-label>
-          <ion-select [(ngModel)]="pais" multiple="false">
+          <ion-select [(ngModel)]="pais" formControlName="pais" [class.invalid]="!registerValidate.controls.pais.valid && (registerValidate.controls.pais.dirty || submitAttempt)" name="pais" multiple="false" required>
             <ion-option>Argentina</ion-option>
             <ion-option>Bolivia</ion-option>
             <ion-option>Brasil</ion-option>
@@ -50,20 +65,32 @@
             <ion-option>Venezuela</ion-option>
           </ion-select>
         </ion-item>
+        <ion-item *ngIf="!registerValidate.controls.pais.valid  && (registerValidate.controls.pais.dirty || submitAttempt)">
+            <p>Seleccione un pais.</p>
+        </ion-item>
          
         <ion-item>
           <ion-label><ion-icon name="mail"></ion-icon></ion-label>
-          <ion-input [(ngModel)]="email" placeholder="Email" type="email"></ion-input>
+          <ion-input [(ngModel)]="email"  name="email" formControlName="email" [class.invalid]="!registerValidate.controls.email.valid && (registerValidate.controls.email.dirty || submitAttempt)" placeholder="Email" type="email" required></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!registerValidate.controls.email.valid  && (registerValidate.controls.email.dirty || submitAttempt)">
+            <p>Ingrese un email valido.</p>
         </ion-item>
  
         <ion-item>
           <ion-label><ion-icon name="lock"></ion-icon></ion-label>
-          <ion-input [(ngModel)]="password" placeholder="Contraseña" type="password"></ion-input>
+          <ion-input [(ngModel)]="password"  name="password" formControlName="password" [class.invalid]="!registerValidate.controls.password.valid && (registerValidate.controls.password.dirty || submitAttempt)" placeholder="Contraseña" type="password" required></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!registerValidate.controls.password.valid  && (registerValidate.controls.password.dirty || submitAttempt)">
+            <p>Ingrese una constraseña de al menos 6 caracteres.</p>
         </ion-item>
  
         <ion-item>
-          <ion-label><ion-icon name="lock"></ion-icon></ion-label>
-          <ion-input [(ngModel)]="confirmPassword" placeholder="Confirmar contraseña" type="password"></ion-input>
+          <ion-label><ion-icon name="lock"></ion-icon></ion-label> 
+          <ion-input [(ngModel)]="confirmPassword"  name="confirmPassword" formControlName="confirmPassword" [class.invalid]="!registerValidate.controls.confirmPassword.valid && (registerValidate.controls.confirmPassword.dirty || submitAttempt)" placeholder="Confirmar contraseña" type="password" required></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!registerValidate.controls.confirmPassword.valid  && (registerValidate.controls.confirmPassword.dirty || submitAttempt)">
+            <p>La constraseña no coincide.</p>
         </ion-item>
  
       </ion-list>
@@ -72,3 +99,7 @@
  
     </ion-col>
   </ion-row>
+</form>
+</ion-slide>
+ 
+</ion-slides>

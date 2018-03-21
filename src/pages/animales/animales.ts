@@ -33,7 +33,7 @@ export class AnimalesPage {
  
     this.items = [];
  
-      this.todoService.getDocuments().then((result) => {
+      this.todoService.getTodos().then((result) => {
         this.items = result;
       });
  
@@ -113,8 +113,8 @@ export class AnimalesPage {
     prompt.present();
   }
  */
-  deleteTodo(item){
-    this.todoService.deleteItems(items);
+  deleteTodo(todo){
+    this.todoService.deleteTodo(todo);
   }
  
 }

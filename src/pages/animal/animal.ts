@@ -21,14 +21,14 @@ export class AnimalPage {
   constructor( public navCtrl: NavController,public todoService: Todos, public navParams: NavParams,public alertCtrl: AlertController ) {
    
    //let item = this.navParams.get('_id')
-   let item = this.navParams.get('animal')
+   let todo = this.navParams.get('animal')
 
-   this.nombre=item.nombre;
-   this.raza=item.raza;
-   this.cod=item.cod;
-   this.sexo=item.sexo;
-   this.lote=item.lote;
-   this.fecha=item.fecha
+   this.nombre=todo.nombre;
+   this.raza=todo.raza;
+   this.cod=todo.cod;
+   this.sexo=todo.sexo;
+   this.lote=todo.lote;
+   this.fecha=todo.fecha
  
 
    //this.cargarAnimal(this._id);
@@ -95,7 +95,9 @@ cargarAnimal(_id){
  
     prompt.present();
 
-/*   updateTodo(items){
+  }
+
+  updateTodo(Todos){
  
     let prompt = this.alertCtrl.create({
       title: 'Edit',
@@ -123,8 +125,8 @@ cargarAnimal(_id){
           text: 'Save',
           handler: data => {
             this.todoService.updateTodo({
-              _id: todo._id,
-              _rev: todo._rev,
+              _id: Todos._id,
+              _rev: Todos._rev,
               title: data.title
             });
           }
@@ -133,26 +135,10 @@ cargarAnimal(_id){
     });
  
     prompt.present();
-  }*/
- 
- /*
-  deleteTodo(items){
-    this.todoService.deleteItems(items);
+  }
+  deleteTodo(Todos){
+    this.todoService.deleteTodo(Todos);
   }
 
- */
-  }
- 
-  addData(){
- 
-    let date = new Date();
- 
-    let newDoc = {
-      '_id': date,
-      'message': date.getTime()
-    };
- 
-    this.todoService.addDocument(newDoc);
-  }
  
 }
