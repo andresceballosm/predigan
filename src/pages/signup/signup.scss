@@ -1,9 +1,9 @@
 page-signup {
 
       .scroll-content {
-         background: url('../img/portada.jpg') no-repeat center;
-        display: flex;
-        flex-direction: column;
+         background: url('../assets/imgs/portada.jpg') no-repeat center;
+         display: flex;
+         flex-direction: column;
       }
  
       ion-item {
@@ -13,6 +13,7 @@ page-signup {
           background-color: #f6f6f6;
           opacity: 0.7;
           font-size: 0.9em;
+          position: initial;
       }
  
       ion-list {
@@ -42,6 +43,23 @@ page-signup {
           background-color: transparent;
           border: 1px solid #fff;
       }
+         p {
+            font-size: 0.8em;
+            color: #ea6153;
+        }
+ 
+        .swiper-slide {
+            display: block;
+        }
+ 
+        ion-input, ion-select, ion-textarea {
+            background-color: #fff;
+            padding: 0,5px 1px;
+        }
+
+        .ionItem {
+          color: #ea6153;
+        }
       
  
   }

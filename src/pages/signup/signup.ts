@@ -29,6 +29,8 @@ export class SignupPage {
   error1:'';
   registerValidate:FormGroup;
 
+  submitAttempt: boolean = false;
+
   constructor(public nav: NavController, public formBuilder: FormBuilder, public http: Http, public todoService: Todos, private alertCtrl: AlertController) {
     this.registerValidate = formBuilder.group({
       name:  ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
@@ -51,6 +53,7 @@ export class SignupPage {
 
   register(){
 
+     this.submitAttempt = true;
     if(!this.registerValidate.valid){
       this.signupSlider.slideTo(1);
     }else{
