@@ -1,5 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import PouchDB from 'pouchdb';
+import   superlogin from 'superlogin-client';
+import { Http, Headers } from '@angular/http';
  
 @Injectable()
 export class Todos {
@@ -8,7 +10,7 @@ export class Todos {
   db: any;
   remote: any;
 
-  constructor() {
+  constructor(public http: Http) {
   }
  
   init(details){
@@ -37,7 +39,6 @@ export class Todos {
       console.log("database removed");
     });
   }
-
  
   getTodos() {
  

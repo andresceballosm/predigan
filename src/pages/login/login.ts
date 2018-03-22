@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { IonicPage, NavController, AlertController, NavParams } from 'ionic-angular';
+import   superlogin from 'superlogin-client';
 import { SignupPage } from '../signup/signup';
 import { HomePage } from '../home/home';
 import { Todos } from '../../providers/todos/todos';
@@ -44,6 +45,26 @@ export class LoginPage {
           console.log(err);
         });
  
+  }
+
+  forgotPassword() {
+
+    let alert = this.alertCtrl.create({
+      title: 'Recuperar contraseña',
+      message: 'Ingrese su email',
+      inputs: [
+        {
+          name: 'email',
+          type: 'email'
+        }
+      ],
+      buttons: [{
+        text: 'OK',
+        handler: data => {
+          }
+      }]
+    });
+    alert.present();
   }
  
   launchSignup(){
