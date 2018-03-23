@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import { IonicPage, NavController, AlertController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, NavParams,  LoadingController } from 'ionic-angular';
 import   superlogin from 'superlogin-client';
 import { SignupPage } from '../signup/signup';
 import { HomePage } from '../home/home';
@@ -17,11 +17,13 @@ export class LoginPage {
     username: string;
     password: string;
 
-  constructor(public nav: NavController, public http: Http, public todoService: Todos , private alertCtrl: AlertController) {
+  constructor(public nav: NavController, public loadingController:LoadingController, public http: Http, public todoService: Todos , private alertCtrl: AlertController) {
   }
 
  login(){
  
+      let loading = this.loadingController.create({content : "Cargando..."});
+
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
  
@@ -29,11 +31,12 @@ export class LoginPage {
         username: this.username,
         password: this.password
       };
- 
+        loading.present();
       //this.http.post('http://localhost:3000/auth/login', JSON.stringify(credentials), {headers: headers})
         this.http.post('https://predigan.herokuapp.com/auth/login', JSON.stringify(credentials), {headers: headers})
         .subscribe(res => {
           this.todoService.init(res.json());
+          loading.dismissAll();
           this.nav.setRoot(HomePage);
         }, (err) => {
           let alert = this.alertCtrl.create({
@@ -42,6 +45,7 @@ export class LoginPage {
             buttons: ['Cerrar']
           });
           alert.present();
+          loading.dismissAll();
           console.log(err);
         });
  
@@ -59,9 +63,8 @@ export class LoginPage {
         }
       ],
       buttons: [{
-        text: 'OK',
-        handler: data => {
-          }
+        text: 'Enviar',
+
       }]
     });
     alert.present();

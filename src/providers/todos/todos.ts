@@ -34,7 +34,6 @@ export class Todos {
   logout(){
  
     this.data = null;
- 
     this.db.destroy().then(() => {
       console.log("database removed");
     });

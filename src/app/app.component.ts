@@ -4,7 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { AnimalesPage } from '../pages/animales/animales';
 import { AnimalPage } from '../pages/animal/animal';
@@ -12,18 +11,20 @@ import { SaludPage } from '../pages/salud/salud';
 import { InformesPage } from '../pages/informes/informes';
 
 
+import { Todos } from '../providers/todos/todos';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
+  todos : any;
   @ViewChild(Nav) nav: Nav;
 
   rootPage:any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public todoService: Todos, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -32,7 +33,7 @@ export class MyApp {
       { title: 'Animales', component: AnimalesPage },
       { title: 'Salud', component: SaludPage },
       { title: 'Informes', component: InformesPage },
-      { title: 'List', component: ListPage },
+      { title: 'Login', component: LoginPage },
     ];
 
   }
@@ -51,4 +52,13 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
-}
+
+  logout(page){
+      this.todoService.logout();
+      this.todos = null;
+      
+      this.nav.setRoot(page.component);
+    
+    }
+  }
+

@@ -60,6 +60,12 @@ page-signup {
         .ionItem {
           color: #ea6153;
         }
+        ion-spinner * {
+            width: 28px;
+            height: 28px;
+            stroke: #444;
+            fill: #222;
+        }
       
  
   }
